@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #183255;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+header .logo {
+  max-width: 10vw;
+}
+
+header .profile {
+  width: 3vw;
+  height: auto;
+  aspect-ratio: 1/1;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid #abc;
+}
