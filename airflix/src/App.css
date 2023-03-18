@@ -27,3 +27,12 @@ header .profile {
   border-radius: 50%;
   border: 2px solid #abc;
 }
+
+header .userActions {
+  display: flex;
+  align-items: center;
+}
+
+header .userActions i {
+  font-size: 1.8rem;
+}
