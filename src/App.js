@@ -1,8 +1,12 @@
 import logo from "./images/logo.jpg";
 import profile from "./images/profile.jpg";
 import "./App.css";
+import { Outlet, NavLink } from "react-router-dom";
 
-function App() {
+const App = () => {
+  const setLinkState = ({isActive, isPending}) => {
+    return isActive ? "active" : isPending ? "pending" : "";
+  }
   return (
     <div className="App">
       <header>
@@ -11,29 +15,32 @@ function App() {
         </a>
         <div className="userActions">
           <nav>
-            <a href="/" role="button" data-tooltip="Discover">
+            <NavLink className={setLinkState} to="/" role="button" data-tooltip="Discover">
               <i className="fas fa-compass"></i>
-            </a>
-            <a href="#" role="button" data-tooltip="Search">
+            </NavLink>
+            <NavLink className={setLinkState} to="search" role="button" data-tooltip="Search">
               <i className="fas fa-search"></i>
-            </a>
-            <a href="#" role="button" data-tooltip="Watchlist">
+            </NavLink>
+            <NavLink className={setLinkState} to="watchlist" role="button" data-tooltip="Watchlist">
               <i className="fas fa-play"></i>
-            </a>
-            <a href="#" role="button" data-tooltip="Lists">
+            </NavLink>
+            <NavLink className={setLinkState} to="lists" role="button" data-tooltip="Lists">
               <i className="fas fa-list-ul"></i>
-            </a>
-            <a href="#" role="button" data-tooltip="Favorites">
+            </NavLink>
+            <NavLink className={setLinkState} to="favorites" role="button" data-tooltip="Favorites">
               <i className="fas fa-heart"></i>
-            </a>
-            <a href="#" role="button" data-tooltip="Collections">
+            </NavLink>
+            <NavLink className={setLinkState} to="collections" role="button" data-tooltip="Collections">
               <i className="fas fa-lines-leaning"></i>
-            </a>
+            </NavLink>
           </nav>
           <img className="profile" src={profile} alt="User Profie" data-tooltip="Profile"/>
           <i className="fas fa-life-ring support" data-tooltip="Support"></i>
         </div>
       </header>
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }
