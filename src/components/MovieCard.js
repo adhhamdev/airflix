@@ -3,8 +3,8 @@ const MovieCard = ({title, src, rating}) => {
     const imgBaseURL = "https://image.tmdb.org/t/p/w500";
     const imgSrc = imgBaseURL + src;
   return (
-    <div className="MovieCard" loading="lazy">
-        {src ? <img src={imgSrc} alt={title} /> : <div className="noImage"></div>}
+    <div className="MovieCard">
+        <img src={imgSrc} alt={title} loading="lazy" />
         <div className="info">
             <p className="title"><a href="">{title}</a></p>
             <p className="rating"><i className="fas fa-star"></i> {rating}</p>

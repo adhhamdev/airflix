@@ -54,9 +54,11 @@ const Home = () => {
 
   window.onkeyup = (e) => {
     if (e.key == 'ArrowRight') {
-      turnNextPage();
+      document.querySelector('.nextBtn').click();
+      document.querySelector('.nextBtn').focus();
     } else if (e.key == 'ArrowLeft') {
-      turnPrevPage();
+      document.querySelector('.prevBtn').click();
+      document.querySelector('.prevBtn').focus();
     }
   }
 
