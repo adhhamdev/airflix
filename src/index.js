@@ -20,6 +20,7 @@ const router = createBrowserRouter([
         loader: async () => {
           const trendings = await (await fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=08a7337c36b62d4a8a9dfafd26b3afb6')).json();
           const discovers = await (await fetch('https://api.themoviedb.org/3/discover/movie?api_key=08a7337c36b62d4a8a9dfafd26b3afb6')).json();
+          console.log(discovers);
           return {trendings, discovers};
         }
       },

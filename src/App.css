@@ -166,8 +166,8 @@ header nav a:hover::after {
   display: flex;
   align-items: center;
   overflow-x: auto;
-  width: 1fr;
-  max-width: 44%;
+  margin: 0 30px;
+  flex-grow: 1;
   border-radius: 30px;
   padding: 5px 15px;
   color: #fff;
@@ -177,7 +177,6 @@ header nav a:hover::after {
 .listHead .arrangeActions button {
   min-width: 140px;
   margin: 0 8px;
-  border: none;
   border-radius: 30px;
   padding: 8px 15px;
   font-family: Poppins, serif;
@@ -196,10 +195,6 @@ header nav a:hover::after {
 
 .listHead .arrangeActions button i {
   margin-left: 5px;
-}
-
-.listHead .sort {
-  margin-left: 50px;
 }
 
 /* Home */
@@ -301,6 +296,55 @@ header nav a:hover::after {
 }
 .loadMoreCard:hover {
   border: 4px solid #fff;
+}
+
+/* Paginator */
+.paginator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 40px auto;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.paginator button, .paginator .pageNumber {
+  min-width: 40px;
+  margin: 0 5px;
+  border-radius: 30px;
+  padding: 8px 40px;
+  text-align: center;
+  font-size: 1rem;
+  font-family: Poppins, serif;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.paginator button:hover {
+  background-color: rgba(0, 255, 170, 0.2);
+}
+
+.paginator button i {
+  margin: 0 10px;
+}
+
+.paginator .pageNumber {
+  color: #000;
+  font-weight: 900;
+  background: #fff;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center;
+  background-color: #001;
 }
 
 /* Scrollbar */

@@ -4,7 +4,7 @@ const MovieCard = ({title, src, rating}) => {
     const imgSrc = imgBaseURL + src;
   return (
     <div className="MovieCard" loading="lazy">
-        <img src={imgSrc} alt={title} loading="lazy" />
+        {src ? <img src={imgSrc} alt={title} /> : <div className="noImage"></div>}
         <div className="info">
             <p className="title"><a href="">{title}</a></p>
             <p className="rating"><i className="fas fa-star"></i> {rating}</p>
