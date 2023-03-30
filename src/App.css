@@ -7,7 +7,7 @@
 
 body {
   font-family: Poppins, serif;
-  background-image: linear-gradient(#183255 80%, #111);
+  background: linear-gradient(#D2EAF5 80%, #002C80);
   background-attachment: fixed;
   scroll-behavior: smooth;
 }
@@ -21,11 +21,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #789;
-  padding: 10px;
+  /* border-bottom: 2px solid #789; */
+  padding: 0 10px;
+  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.3);
 }
 
 header .logo {
+  display: flex;
+  align-items: center;
   width: 10vw;
   height: auto;
 }
@@ -36,13 +39,13 @@ header .profile {
   aspect-ratio: 1/1;
   margin: 0 20px;
   border-radius: 50%;
-  border: 2px solid #abc;
+  border: 2px solid #aaa;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 header .profile:hover {
-  border-color: #fff;
+  border-color: #123;
 }
 
 header .userActions {
@@ -53,19 +56,19 @@ header .userActions {
 header .userActions .support {
   margin: 0 10px;
   font-size: 1.8rem;
-  color: #abc;
+  color: #789;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 header .userActions .support:hover {
-  color: #fff;
+  color: #123;
 }
 
 header nav {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, .1);
+  background: #fff;
   border-radius: 10px;
   padding: 10px;
 }
@@ -74,13 +77,13 @@ header nav a {
   position: relative;
   margin: 0 20px;
   font-size: 1.8rem;
-  color: #abc;
+  color: #789;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 header nav a:hover {
-  color: #fff;
+  color: #123;
 }
 
 header nav a.active i {
@@ -149,11 +152,11 @@ header nav a:hover::after {
 .listHead .seeMore {
   margin: 0 20px;
   text-decoration: none;
-  color: #0da;
+  color: #0ba;
 }
 
 .listHead .seeMore:hover {
-  color: #fff;
+  color: #000;
 }
 
 .listHead .listActions {
@@ -170,17 +173,18 @@ header nav a:hover::after {
   flex-grow: 1;
   border-radius: 30px;
   padding: 5px 15px;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.2);
+  color: #000;
+  background-color: #fff;
 }
 
 .listHead .arrangeActions button {
   min-width: 140px;
   margin: 0 8px;
+  border: none;
   border-radius: 30px;
   padding: 8px 15px;
   font-family: Poppins, serif;
-  color: #fff;
+  color: #000;
   background: rgba(255, 255, 255, 0.1);
   cursor: pointer;
 }
@@ -206,7 +210,7 @@ header nav a:hover::after {
   scroll-behavior: smooth;
 }
 
-.Home .verticalList {
+.verticalList {
   display: grid;
   row-gap: 10px;
   grid-template-columns: repeat(7, 1fr);
@@ -248,7 +252,7 @@ header nav a:hover::after {
   padding: 10px;
   line-height: 25px;
   color: #000;
-  background-color: #fff;
+  background-color:  #fff;
   transition: all 0.2s ease;
 }
 
@@ -305,7 +309,7 @@ header nav a:hover::after {
   align-items: center;
   width: fit-content;
   margin: 40px auto;
-  border: 2px solid #fff;
+  border: 2px solid #123;
   border-radius: 40px;
   padding: 10px;
 }
@@ -313,17 +317,18 @@ header nav a:hover::after {
 .paginator button, .paginator .pageNumber {
   min-width: 40px;
   margin: 0 5px;
+  border: none;
   border-radius: 30px;
   padding: 8px 40px;
   text-align: center;
   font-size: 1rem;
   font-family: Poppins, serif;
   color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  background: #123;
   cursor: pointer;
 }
 .paginator button:hover {
-  background-color: rgba(0, 255, 170, 0.2);
+  background-color: #000;
 }
 
 .paginator button i {
@@ -334,6 +339,60 @@ header nav a:hover::after {
   color: #000;
   font-weight: 900;
   background: #fff;
+}
+
+/* Search */
+.Search .pageTitle {
+  margin: 20px;
+}
+
+.Search .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+  border: 2px solid #789;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.Search .search input {
+  flex-grow: 1;
+  margin: 0 10px;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  padding: 8px 40px;
+  font-size: 1rem;
+  font-family: Poppins, serif;
+  background: #fff;
+}
+
+.Search .search button {
+  border: none;
+  border-radius: 30px;
+  padding: 8px 40px;
+  font-size: 1rem;
+  font-family: Poppins, serif;
+  color: #fff;
+  background: #123;
+  cursor: pointer;
+}
+
+.Search .search button:hover {
+  background-color: #000;
+}
+
+.Search .search button i {
+  margin: 0 10px;
+}
+
+.Search .noResults {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #456;
 }
 
 /* Footer */

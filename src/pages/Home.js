@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom"
 import MovieCard from "../components/MovieCard"
+import VerticalList from "../components/VerticalList";
+import Paginator from "../components/Paginator";
 
 const Home = () => {
   const {trendings, discovers} = useLoaderData();
@@ -23,9 +25,8 @@ const Home = () => {
   useEffect(() => {
     const fetchDiscover = async () => {
       const resUrl = arrange.filter == 'popular' ? 'movie/popular' : arrange.filter == 'now_playing' ? 'movie/now_playing' : arrange.filter == 'top_rated' ? 'movie/top_rated' : arrange.filter == 'upcoming' ?  'movie/upcoming' : 'discover/movie';
-      const discover = await (await fetch(`https://api.themoviedb.org/3/${resUrl}?api_key=08a7337c36b62d4a8a9dfafd26b3afb6&${arrange.sort && `sort_by=${arrange.sort}`}page=${page[arrange.filter == "" ? 'all' : arrange.filter]}`)).json();
+      const discover = await (await fetch(`https://api.themoviedb.org/3/${resUrl}?api_key=08a7337c36b62d4a8a9dfafd26b3afb6&${arrange.sort && `sort_by=${arrange.sort}`}&page=${page[arrange.filter == "" ? 'all' : arrange.filter]}`)).json();
       setMovieLists(prev => ({...prev, discover: discover.results}))
-      console.log(discover)
     }
     fetchDiscover();
   }, [arrange, page])
@@ -60,6 +61,10 @@ const Home = () => {
       document.querySelector('.prevBtn').click();
       document.querySelector('.prevBtn').focus();
     }
+  }
+
+  const appropriatePage = () => {
+    return page[arrange.filter ? arrange.filter : 'all'];
   }
 
   return (
@@ -107,17 +112,9 @@ const Home = () => {
             </div>}
           </div>
         </div>
-        <div className="verticalList">
-          {movieLists.discover.map((movie) => (
-            movie.poster_path && <MovieCard key={movie.id} title={movie.original_title} src={movie.poster_path} rating={movie.vote_average} />
-          ))}
-        </div>
+        <VerticalList list={movieLists.discover}/>
       </section>
-      <div className="paginator">
-        <button className="prevBtn" onClick={turnPrevPage}><i className="fas fa-chevron-left"></i> PREV</button>
-        <p className="pageNumber" title="PAGE NUMBER">{page[arrange.filter ? arrange.filter : 'all']}</p>
-        <button className="nextBtn" onClick={turnNextPage}>NEXT <i className="fas fa-chevron-right"></i></button>
-      </div>
+      <Paginator prevFunc={turnPrevPage} page={appropriatePage()} nextFunc={turnNextPage}/>
     </div>
   )
 }

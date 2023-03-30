@@ -3,23 +3,13 @@
   "name": "Airflix - Discover your next favorite movie",
   "icons": [
     {
-      "src": "profile.jpg",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "icon.png",
+      "sizes": "64x64 32x32 24x24 16x16 1000x1000",
       "type": "image/x-icon"
-    },
-    {
-      "src": "profile.jpg",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "profile.jpg",
-      "type": "image/png",
-      "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#183255",
-  "background_color": "#ffffff"
+  "theme_color": "#D2EAF5",
+  "background_color": "#D2EAF5"
 }

@@ -1,5 +1,5 @@
-import logo from "./images/logo.jpg";
-import profile from "./images/profile.jpg";
+import logo from "./images/cover.png";
+import profile from "./images/icon.png";
 import "./App.css";
 import { Outlet, NavLink, useNavigation } from "react-router-dom";
 
