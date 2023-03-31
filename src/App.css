@@ -87,7 +87,7 @@ header nav a:hover {
 }
 
 header nav a.active i {
-  background: linear-gradient(90deg, deepskyblue, #0fa);
+  background: linear-gradient(135deg, #002C80 30%, deepskyblue);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -179,7 +179,7 @@ header nav a:hover::after {
 
 .listHead .arrangeActions button {
   min-width: 140px;
-  margin: 0 8px;
+  margin: 0 4px;
   border: none;
   border-radius: 30px;
   padding: 8px 15px;
@@ -190,11 +190,12 @@ header nav a:hover::after {
 }
 
 .listHead .arrangeActions button:hover {
-  background-color: rgba(0, 255, 170, 0.2);
+  background-color: #002d8076;
 }
 
 .listHead .listActions button.active {
-  background-image: linear-gradient(45deg, #0ba, limegreen);
+  color: #fff;
+  background-image: linear-gradient(135deg, #002C80 30%, deepskyblue);
 }
 
 .listHead .arrangeActions button i {
@@ -218,7 +219,7 @@ header nav a:hover::after {
   padding: 10px;
 }
 
-.MovieCard {
+.MovieCard, .PersonCard {
   position: relative;
   min-width: 200px;
   width: 200px;
@@ -228,23 +229,27 @@ header nav a:hover::after {
   transition: all 0.3s ease;
   overflow: hidden;
 }
-.MovieCard:hover img {
+.PersonCard {
+  border-radius: 30px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
+}
+.MovieCard:hover img, .PersonCard:hover img {
   filter: brightness(50%);
 }
-.MovieCard:hover .info {
+.MovieCard:hover .info, .PersonCard:hover .info {
   bottom: 0;
 }
 .MovieCard:hover .actions {
   display: block;
 }
 
-.MovieCard img {
+.MovieCard img, .PersonCard img {
   width: 100%;
   height: 100%;
   border-radius: inherit;
 }
 
-.MovieCard .info {
+.MovieCard .info, .PersonCard .info {
   position: absolute;
   bottom: -50%;
   width: 100%;
@@ -256,19 +261,25 @@ header nav a:hover::after {
   transition: all 0.2s ease;
 }
 
-.MovieCard .info .title {
+.MovieCard .info .title, .PersonCard .info .name {
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
 
-.MovieCard .info .title a {
+.MovieCard .info .title a, .PersonCard .info .name a {
   text-decoration: none;
   color: #000;
   font-weight: bold;
 }
+.MovieCard .info .title a:hover, .PersonCard .info .name a:hover {
+  color: #789;
+}
 
 .MovieCard .info .rating {
   color: #0ba;
+}
+.PersonCard .info .popularity {
+  color: purple;
 }
 
 .MovieCard .actions {

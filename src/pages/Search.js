@@ -15,7 +15,6 @@ const Search = () => {
       const searched = await fetch(`https://api.themoviedb.org/3//search/multi?api_key=08a7337c36b62d4a8a9dfafd26b3afb6&${query && `query=${query}`}&page=${searchPage}`);
       const searchedJson = await searched.json();
       setResults(searchedJson.results);
-      console.log(results)
     }
     search();
   }, [query, searchPage]);

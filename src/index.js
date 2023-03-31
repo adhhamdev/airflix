@@ -18,9 +18,26 @@ const router = createBrowserRouter([
         index: true,
         element: <Home/>,
         loader: async () => {
+          const requestToken = await (await fetch('https://api.themoviedb.org/3/authentication/token/new?api_key=08a7337c36b62d4a8a9dfafd26b3afb6')).json();
+          console.log(requestToken);
+
+          /* request the user to login */
+          const login = await (await fetch(`https://www.themoviedb.org/authenticate/${requestToken.request_token}`)).json();
+          console.log(login);
+
+          /* get the session id */
+          // const session = await (await fetch('https://api.themoviedb.org/3/authentication/session/new?api_key=08a7337c36b62d4a8a9dfafd26b3afb6', {
+          //   method: 'POST',
+          //   headers: {
+          //     'Content-Type': 'application/json'
+          //   },
+          //   body: JSON.stringify({
+          //     request_token: requestToken.request_token
+          //   })
+          // })).json();
+          // console.log(session);
           const trendings = await (await fetch('https://api.themoviedb.org/3/trending/movie/day?api_key=08a7337c36b62d4a8a9dfafd26b3afb6')).json();
           const discovers = await (await fetch('https://api.themoviedb.org/3/discover/movie?api_key=08a7337c36b62d4a8a9dfafd26b3afb6')).json();
-          console.log(discovers);
           return {trendings, discovers};
         }
       },
