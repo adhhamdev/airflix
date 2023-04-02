@@ -101,7 +101,7 @@ const Home = () => {
               <button className={`filterBtn ${arrange.filter == 'now_playing' && 'active'}`} onClick={() => {
                 setArrange(prev => ({...prev, filter: 'now_playing'}))
                 }}>NOW PLAYING</button>
-            </div>
+            </div>  
             {!arrange.filter && <div className="arrangeActions sort">
               SORT:
               <button className={`sortBtn ${arrange.sort == '' && 'active'}`} onClick={() => setArrange(prev => ({...prev, sort: ''}))}>ALL</button>
