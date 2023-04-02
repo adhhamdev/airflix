@@ -22,10 +22,10 @@ const router = createBrowserRouter([
           console.log(requestToken);
 
           /* request the user to login */
-          const login = await (await fetch(`https://api.themoviedb.org/authenticate/${requestToken.request_token}`)).json();
+          const login = await (await fetch(`https://www.themoviedb.org/authenticate/${requestToken.request_token}`)).json();
           console.log(login);
 
-          const session = await (await fetch('https://www.themoviedb.org/3/authentication/session/new?api_key=08a7337c36b62d4a8a9dfafd26b3afb6', {
+          const session = await (await fetch('https://api.themoviedb.org/3/authentication/session/new?api_key=08a7337c36b62d4a8a9dfafd26b3afb6', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -64,7 +64,6 @@ const router = createBrowserRouter([
     ]
   }
 ]);
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
