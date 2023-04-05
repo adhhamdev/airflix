@@ -76,7 +76,7 @@ const Home = () => {
         </div>
         <div className="horizontalList">
           {movieLists.trending.map((movie) => (
-            <MovieCard key={movie.id} title={movie.original_title} src={movie.poster_path} rating={movie.vote_average} />
+            <MovieCard key={movie.id} id={movie.id} title={movie.original_title} src={movie.poster_path} rating={movie.vote_average} />
           ))}
         </div>
       </section>

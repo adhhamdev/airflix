@@ -1,9 +1,22 @@
 import logo from "./images/cover.png";
-import profile from "./images/icon.png";
 import "./App.css";
 import { Outlet, NavLink, useNavigation } from "react-router-dom";
+import { useEffect } from "react";
 
 const App = () => {
+
+  useEffect(() => {
+    const authorize = async () => {
+      let storedSession = JSON.parse(localStorage.getItem('guestSession'));
+      if(storedSession == null) {
+        const createGuestSession = await (await fetch('https://api.themoviedb.org/3/authentication/guest_session/new?api_key=08a7337c36b62d4a8a9dfafd26b3afb6')).json(); 
+        storedSession = createGuestSession;
+        localStorage.setItem('guestSession', JSON.stringify(createGuestSession))
+      }
+    }
+    authorize();
+  }, [])
+
   const navigation = useNavigation();
   const setLinkState = ({isActive, isPending}) => {
     return isActive ? "active" : isPending ? "pending" : "";
@@ -27,7 +40,6 @@ const App = () => {
               <i className="fas fa-star"></i>
             </NavLink>
           </nav>
-          <img className="profile" src={profile} alt="User Profie" title="PROFILE"/>
           <i className="fas fa-life-ring support" title="SUPPORT"></i>
         </div>
       </header>

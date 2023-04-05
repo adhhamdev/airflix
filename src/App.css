@@ -21,7 +21,6 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border-bottom: 2px solid #789; */
   padding: 0 10px;
   box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.3);
 }
@@ -31,21 +30,6 @@ header .logo {
   align-items: center;
   width: 10vw;
   height: auto;
-}
-
-header .profile {
-  width: 3vw;
-  height: auto;
-  aspect-ratio: 1/1;
-  margin: 0 20px;
-  border-radius: 50%;
-  border: 2px solid #aaa;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-header .profile:hover {
-  border-color: #123;
 }
 
 header .userActions {
@@ -353,7 +337,7 @@ header nav a:hover::after {
 }
 
 /* Search */
-.Search .pageTitle {
+.pageTitle {
   margin: 20px;
 }
 
@@ -398,7 +382,7 @@ header nav a:hover::after {
   margin: 0 10px;
 }
 
-.Search .noResults {
+.noResults {
   height: 40vh;
   display: flex;
   justify-content: center;

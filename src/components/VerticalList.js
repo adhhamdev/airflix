@@ -8,6 +8,7 @@ const VerticalList = ({list}) => {
         movie.poster_path && 
         (movie.media_type ? movie.media_type == 'movie': true) &&
         <MovieCard
+        id={movie.id}
         key={movie.id} 
         title={movie.original_title} 
         name={movie.name} src={movie.poster_path} 
