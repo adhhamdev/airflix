@@ -5,7 +5,7 @@ import VerticalList from "../components/VerticalList";
 import Paginator from "../components/Paginator";
 
 const Home = () => {
-  const {trendings, discovers} = useLoaderData();
+  const {trendings, discovers, sessionRatedMovies} = useLoaderData();
   const [movieLists, setMovieLists] = useState({
     trending: trendings.results,
     discover: discovers.results
