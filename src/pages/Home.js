@@ -5,7 +5,7 @@ import VerticalList from "../components/VerticalList";
 import Paginator from "../components/Paginator";
 
 const Home = () => {
-  const {trendings, discovers, sessionRatedMovies} = useLoaderData();
+  const {trendings, discovers} = useLoaderData();
   const [movieLists, setMovieLists] = useState({
     trending: trendings.results,
     discover: discovers.results
@@ -76,7 +76,7 @@ const Home = () => {
         </div>
         <div className="horizontalList">
           {movieLists.trending.map((movie) => (
-            <MovieCard key={movie.id} id={movie.id} title={movie.original_title} src={movie.poster_path} rating={movie.vote_average} />
+            <MovieCard key={movie.id} id={movie.id} title={movie.original_title} src={movie.poster_path} vote_average={movie.vote_average} />
           ))}
         </div>
       </section>

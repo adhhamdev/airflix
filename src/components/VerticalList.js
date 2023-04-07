@@ -1,7 +1,7 @@
 import MovieCard from "./MovieCard"
 import PersonCard from "./PersonCard"
 
-const VerticalList = ({list}) => {
+const VerticalList = ({list,}) => {
   return (
     <div className="verticalList">
         {list && list.map((movie) => (
@@ -11,8 +11,10 @@ const VerticalList = ({list}) => {
         id={movie.id}
         key={movie.id} 
         title={movie.original_title} 
-        name={movie.name} src={movie.poster_path} 
-        rating={movie.vote_average} /> || 
+        name={movie.name} 
+        src={movie.poster_path} 
+        vote_average={movie.vote_average}
+        rating={movie.rating}/> || 
         movie.media_type == 'person' && 
         movie.profile_path && <PersonCard 
         key={movie.id} 
