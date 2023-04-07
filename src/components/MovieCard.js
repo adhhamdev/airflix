@@ -33,7 +33,7 @@ const MovieCard = ({id, title, name, src, vote_average, rating}) => {
             <p className="vote_average"><i className="fas fa-star"></i> {vote_average}</p>
         </div>
         <div className="actions">
-            <i className={`${rating ? 'fas' : 'far'} fa-star`} role="button" title={rating ? rating : 'RATE'} onClick={rateHandle}></i>
+            <i className={`${rating ? 'fas' : 'far'} fa-star`} role="button" title={rating ? `UNRATE: ${rating}` : 'RATE'} onClick={rateHandle}></i>
         </div>
     </div>
   )
