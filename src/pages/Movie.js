@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
+import { rateHandle } from "../handlers/handlers"
 
 const Movie = () => {
+    const imgBaseURL = "https://image.tmdb.org/t/p/w500";
     const params = useParams();
     const movieId = params.id;
     const [movieData, setMovieData] = useState({
@@ -22,35 +24,59 @@ const Movie = () => {
             setMovieData({movie: data, keywords: keywordsJson.keywords, similarMovies: similarsJson.results})
         }
         getMovie()
-    }, []);
+    }, [params]);
   return (
     <div className="Movie">
         <div className="movieNav">
-            <Link to="/"><i className="fas fa-arrow-left"></i> BACK</Link>
+            <Link className="backBtn" to="/"><i className="fas fa-arrow-left"></i> BACK</Link>
         </div>
         <main className="movieInfo">
-            <img className="backdrop" src={movieData.movie.backdrop_path} alt={movieData.movie.original_title} />
+           <div className="showcase">
+                {movieData.movie.backdrop_path ? <img className="backdrop" src={imgBaseURL + movieData.movie.backdrop_path} alt=    {movieData.movie.original_title} /> : <div className="backdropFB"></div>}
+                <div>
+                    <h1 className="movieTitle" title={movieData.movie.original_title}>{movieData.movie.original_title}</h1>
+                    <p className="movieVote"><i className="fas fa-star"></i> {movieData.movie.vote_average}</p>
+                    <p className="movieLang"><i className="fas fa-language"></i> {movieData.movie.original_language}</p>
+                    <button className="movieStarBtn" 
+                    onClick={() => rateHandle(movieData.movie.id, movieData.movie.title, movieData.movie.name, movieData.movie.rating)}
+                    >
+                        <i className="far fa-star"></i> RATE IT
+                    </button>
+                </div>
+           </div>
             <div className="movieContent">
-                <h1 className="movieTitle">{movieData.movie.original_title}</h1>
-                <p className="movieTagline">{movieData.movie.tagline}</p>
-                <p className="movieOverview">{movieData.movie.overview}</p>
-                <p className="movieVote"><i className="fas fa-star"></i> {movieData.movie.vote_average}</p>
-                <p className="keywords">
-                    {movieData.keywords.map((kw) => {
-                        return (
-                            <span key={kw.id} className="keyword">{kw.name}</span>
-                        )
-                    })}
-                </p>
+            {movieData.movie.tagline && 
+                <div>
+                    <h2>TAGLINE</h2>
+                    <p className="movieTagline">{movieData.movie.tagline}</p>
+                </div>
+            }
+                <div>
+                    <h2>OVERVIEW</h2>
+                    <p className="movieOverview">{movieData.movie.overview}</p>
+                </div>
+                <div className="properties">
+                    <p className="property movieReleaseDate"><span>RELEASE DATE :</span> {movieData.movie.release_date}</p>
+                    <p className="property movieRuntime"><span>RUNTIME :</span> {movieData.movie.runtime} min</p>
+                    <p className="property movieBudget"><span>BUDGET :</span> {movieData.movie.budget} $</p>
+                    <p className="property movieRevenue"><span>REVENUE :</span> {movieData.movie.revenue} $</p>
+                    <p className="property movieStatus"><span>STATUS :</span> {movieData.movie.status}</p>
+                </div>
+                <div className="property keywords">
+                    <h2>KEYWORDS</h2>
+                    <div>
+                        {movieData.keywords.map((kw) => {
+                            return (
+                                <span key={kw.id} className="keyword">{kw.name}</span>
+                            )
+                        })}
+                    </div>
+                </div>
                 <div className="movieGenres">
+                    <h2>GENRES</h2>
                     {movieData.movie.genres.map((genre) => {
                         return <span key={genre.id} className="genre">{genre.name}</span>
                     })}
-                </div>
-                <div className="movieActions">
-                    <i className="fas fa-star"></i>
-                    <i className="fas fa-plus"></i>
-                    <i className="fas fa-share-alt"></i>
                 </div>
             </div>
             <div className="videos">
@@ -67,17 +93,18 @@ const Movie = () => {
             </div>
         </main>
         <aside className="similarMovies">
-            <h2 className="similarMoviesTitle">Similar Movies</h2>
+            <h2 className="similarMoviesTitle">SIMILAR MOVIES</h2>
             <div className="similarMoviesList">
                 {movieData.similarMovies.map((movie) => {
                     return (
-                        <div className="similarMovie">
-                            <img src="https://image.tmdb.org/t/p/w500/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg" alt="Movie Backdrop" />
+                        <Link to={`../movie/${movie.id}`} key={movie.id} className="similarMovie">
+                            {movie.backdrop_path ? <img className="similarTN" src={imgBaseURL + movie.backdrop_path} alt="Movie Backdrop" /> : <div className="similarTNFallback"></div>}
                             <div className="similarMovieInfo">
-                                <p className="similarMovieTitle">Movie Title</p>
-                                <p className="similarMovieRating"><i className="fas fa-star"></i> 5.6</p>
+                                <p className="similarMovieTitle">{movie.title}</p>
+                                <p className="similarMovieRating"><i className="fas fa-star"></i> {movie.vote_average}</p>
+                                <p className="similarMovieLang"><i className="fas fa-language"></i> {movie.original_language}</p>
                             </div>
-                        </div>
+                        </Link>
                     )
                 })}
             </div>
