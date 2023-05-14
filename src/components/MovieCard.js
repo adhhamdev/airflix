@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const MovieCard = ({id, title, name, src, vote_average, rating}) => {
     const imgBaseURL = "https://image.tmdb.org/t/p/w500";
@@ -29,7 +30,7 @@ const MovieCard = ({id, title, name, src, vote_average, rating}) => {
     <div className="MovieCard">
         <img src={imgSrc} alt={title} loading="lazy" />
         <div className="info">
-            <p className="title"><a href="">{title || name}</a></p>
+            <p className="title"><Link to={`movie/${id}`}>{title || name}</Link></p>
             <p className="vote_average"><i className="fas fa-star"></i> {vote_average}</p>
         </div>
         <div className="actions">

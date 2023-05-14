@@ -33,7 +33,6 @@ const Search = () => {
       <h1 className="pageTitle">Search</h1>
       <form className="search" name="search">
         <input type="text" placeholder="Search for a movie, person..." onChange={handleQuery} value={query} autoFocus required />
-        <button><i className="fas fa-search"></i> Search</button>
       </form>
       {query ? <VerticalList list={results} /> : <p className="noResults">NO RESULTS...</p>}
       {query && <Paginator prevFunc={turnPrevPage} page={searchPage} nextFunc={turnNextPage}/>}

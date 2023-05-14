@@ -4,6 +4,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Rated from "./pages/Rated";
+import Movie from "./pages/Movie";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -22,11 +23,15 @@ const router = createBrowserRouter([
       },
       {
         path: 'search',
-        element: <Search />,
+        element: <Search />
       },
       {
         path: 'rated',
         element: <Rated />
+      },
+      {
+        path: 'movie/:id',
+        element: <Movie />
       }
     ]
   }

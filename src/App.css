@@ -99,7 +99,7 @@ header nav a::after {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 5px;
+  padding: 5px 10px;
   background: #123;
   color: #fff;
   border-radius: 5px;
@@ -363,31 +363,65 @@ header nav a:hover::after {
   background: #fff;
 }
 
-.Search .search button {
-  border: none;
-  border-radius: 30px;
-  padding: 8px 40px;
-  font-size: 1rem;
-  font-family: Poppins, serif;
-  color: #fff;
-  background: #123;
-  cursor: pointer;
-}
-
-.Search .search button:hover {
-  background-color: #000;
-}
-
-.Search .search button i {
-  margin: 0 10px;
-}
-
 .noResults {
   height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #456;
+}
+
+/* Movie Page */
+.Movie {
+  display: grid;
+  grid-template-areas: 
+  "nav nav"
+  "movie similar";
+  grid-template-rows: 8vh 1fr;
+  grid-template-columns: 55vw 1fr;
+}
+
+.Movie .movieNav {
+  grid-area: nav;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.Movie .movieNav a {
+  margin-right: 20px;
+  border-radius: 20px;
+  padding: 5px 20px;
+  text-decoration: none;
+  color: #567;
+  font-size: 1.2rem;
+  font-weight: 900;
+  background-color: #fff;
+}
+.Movie .movieNav a:hover {
+  color: #fff;
+  background-color: #456;
+}
+
+.Movie .movieNav a i {
+  margin-right: 5px;
+}
+
+.Movie .movieInfo {
+  padding: 0 10px;
+}
+
+.Movie .backdrop {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.Movie .movieContent .poster {
+
+}
+
+.Movie .similarMovies {
+  background: #000;
 }
 
 /* Footer */
