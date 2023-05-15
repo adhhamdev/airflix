@@ -589,12 +589,13 @@ footer {
     bottom: 0;
   }
   .paginator {
+    font-size: 1.5rem;
     bottom: 4%;
     background-color: rgba(0, 0, 0, 0.9);
   }
   .MovieCard {
-    width: 30vw;
-    font-size: 1.8rem;
+    width: 30%;
+    font-size: 2rem;
   }
   .MovieCard .title {
     margin: 10px 0;
@@ -606,6 +607,7 @@ footer {
   }
   .listHead {
     flex-direction: column;
+    align-items: flex-start;
   }
   .listActions {
     display: block;
