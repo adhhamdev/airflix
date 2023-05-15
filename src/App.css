@@ -19,30 +19,15 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 10;
   width: 100vw;
   height: 100vh;
-  transition: all 0.3s ease;
-  visibility: visible;
   background: #D2EAF5;
-  animation : fade 1s infinite;
+  animation: fade .5s forwards;
 }
-
 @keyframes fade {
-  0% {
-    opacity: .9;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: .9;
-  }
-}
-
-.loader.fadeOut {
-  opacity: 0;
-  visibility: hidden;
+  0% {opacity: 0;}
+  50% {opacity: 1;}
 }
 
 .loader img {
@@ -104,22 +89,6 @@ header nav a.active i {
   -webkit-text-fill-color: transparent;
 }
 
-header nav a.pending i {
-  animation: fade 1s infinite;
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
 header nav a::after {
   content: attr(data-tooltip);
   position: absolute;
@@ -142,7 +111,6 @@ header nav a:hover::after {
   opacity: 1;
   visibility: visible;
 }
-
 
 .listHead {
   display: flex;
@@ -222,11 +190,18 @@ header nav a:hover::after {
   scroll-behavior: smooth;
 }
 
-.verticalList {
+.discover .verticalList {
   display: grid;
   row-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   width: 100%;
+  padding: 10px;
+}
+
+.Rated .verticalList {
+  display: grid;
+  row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, 230px);
   padding: 10px;
 }
 

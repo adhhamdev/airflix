@@ -22,6 +22,11 @@ const Movie = () => {
             const getSimilars = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`);
             const similarsJson = await getSimilars.json();
             setMovieData({ movie: data, keywords: keywordsJson.keywords, similarMovies: similarsJson.results })
+            caches.open('movies').then(cache => {
+                cache.put(`movie-${movieId}`, new Response(JSON.stringify(data)));
+                cache.put(`keywords-${movieId}`, new Response(JSON.stringify(keywordsJson)));
+                cache.put(`similars-${movieId}`, new Response(JSON.stringify(similarsJson)));
+            });
         }
         getMovie()
     }, [params]);

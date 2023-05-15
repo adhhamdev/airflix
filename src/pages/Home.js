@@ -42,6 +42,11 @@ const Home = () => {
         )
       ).json();
       setMovieLists((prev) => ({ ...prev, discover: discover.results }));
+      if (discover.results.length > 0) {
+        caches.open("discovers").then((cache) => {
+          cache.put("discovers", new Response(JSON.stringify(discover)));
+        });
+      }
     };
     fetchDiscover();
   }, [arrange, page]);
