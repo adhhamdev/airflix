@@ -604,6 +604,6 @@ footer {
     font-size: 2rem;
   }
   .listHead .listActions .arrangeActions {
-    display: none !important;
+    width: 90vw;
   }
 }
