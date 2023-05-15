@@ -589,9 +589,12 @@ footer {
     bottom: 0;
   }
   .paginator {
-    font-size: 1rem;
+    padding: 5px;
     bottom: 4%;
     background-color: rgba(0, 0, 0, 0.9);
+  }
+  .paginator .page, .paginator .next, .paginator .prev {
+    font-size: 1rem;
   }
   .discover .MovieCard {
     width: 100%;
@@ -599,6 +602,7 @@ footer {
   }
   .MovieCard .title {
     margin: 5px 0;
+    height: auto;
   }
   .MovieCard .actions {
     margin: 10px;
