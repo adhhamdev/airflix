@@ -595,7 +595,7 @@ footer {
   }
   .discover .MovieCard {
     width: 100%;
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
   .MovieCard .title {
     margin: 10px 0;
@@ -605,15 +605,7 @@ footer {
     padding: 10px;
     font-size: 2rem;
   }
-  .listHead {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   .listActions {
     overflow-x: scroll;
-    display: block;
-  }
-  .listHead .listActions .arrangeActions {
-    width: 90vw;
   }
 }
