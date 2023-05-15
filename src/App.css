@@ -575,7 +575,7 @@ footer {
 /* Media Queries */
 @media screen and (max-width: 768px) {
   header .logo {
-    width: 40vw;
+    width: 250px;
   }
   nav, .paginator {
     position: fixed;
@@ -595,6 +595,7 @@ footer {
   }
   .paginator .page, .paginator .next, .paginator .prev {
     font-size: 1rem;
+    padding: 2px 0;
   }
   .discover .MovieCard {
     width: 100%;
