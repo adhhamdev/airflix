@@ -593,7 +593,7 @@ footer {
     bottom: 4%;
     background-color: rgba(0, 0, 0, 0.9);
   }
-  .paginator .page, .paginator .next, .paginator .prev {
+  .paginator .pageNumber, .paginator button {
     font-size: 1rem;
     padding: 2px 0;
   }
