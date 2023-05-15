@@ -593,6 +593,10 @@ footer {
     bottom: 4%;
     background-color: rgba(0, 0, 0, 0.9);
   }
+  .discover .MovieCard {
+    width: 100%;
+    font-size: 1.8rem;
+  }
   .MovieCard .title {
     margin: 10px 0;
   }
