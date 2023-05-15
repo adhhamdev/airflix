@@ -24,7 +24,8 @@ const App = () => {
   
   return (
     <div className="App">
-      <header className={(navigation.state == 'submitting' || navigation.state == 'loading') ? 'blackout': null}>
+      {(navigation.state == 'submitting' || navigation.state == 'loading') && <div className="loader"></div>}
+      <header>
         <a href="/">
           <img className="logo" src={logo} alt="Airflix logo" role="banner" />
         </a>
