@@ -13,6 +13,9 @@ body {
 }
 
 .loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -42,6 +45,10 @@ body {
   visibility: hidden;
 }
 
+.loader img {
+  width: 50vw;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -57,12 +64,7 @@ header .logo {
   height: auto;
 }
 
-header .userActions {
-  display: flex;
-  align-items: center;
-}
-
-header .userActions .support {
+header .support {
   margin: 0 10px;
   font-size: 1.8rem;
   color: #789;
@@ -70,7 +72,7 @@ header .userActions .support {
   transition: all 0.3s ease;
 }
 
-header .userActions .support:hover {
+header .support:hover {
   color: #123;
 }
 
@@ -448,6 +450,11 @@ header nav a:hover::after {
   display: flex;
 }
 
+.showcaseInfo p, .showcaseInfo button {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
 .backdrop, .backdropFB {
   width: 50%;
   border-radius: 20px;
@@ -564,4 +571,40 @@ footer {
 /* Scrollbar */
 ::-webkit-scrollbar {
   display: none;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  nav, .paginator {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    z-index: 5;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.5);
+  }
+  nav {
+    bottom: 0;
+  }
+  .paginator {
+    width: 100vw;
+    bottom: 4%;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  .MovieCard {
+    width: 100%;
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  .MovieCard .title {
+    margin: 10px 0;
+  }
+  .MovieCard .actions {
+    margin: 10px;
+    padding: 10px;
+    font-size: 2rem;
+  }
+  .listActions {
+    flex-direction: column;
+  }
 }

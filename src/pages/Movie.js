@@ -33,7 +33,7 @@ const Movie = () => {
             <main className="movieInfo">
                 <div className="showcase">
                     {movieData.movie.backdrop_path ? <img className="backdrop" src={imgBaseURL + movieData.movie.backdrop_path} alt={movieData.movie.original_title} /> : <div className="backdropFB"></div>}
-                    <div>
+                    <div className="showcaseInfo">
                         <h1 className="movieTitle" title={movieData.movie.original_title}>{movieData.movie.original_title}</h1>
                         <p className="movieVote"><i className="fas fa-star"></i> {movieData.movie.vote_average}</p>
                         <p className="movieLang"><i className="fas fa-language"></i> {movieData.movie.original_language}</p>

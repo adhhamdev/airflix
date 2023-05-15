@@ -24,25 +24,23 @@ const App = () => {
 
   return (
     <div className="App">
-      {(navigation.state == 'submitting' || navigation.state == 'loading') && <div className="loader"></div>}
+      {(navigation.state == 'submitting' || navigation.state == 'loading') && <div className="loader"><img src={logo} alt="Airflix Logo" /></div>}
       <header>
         <a href="/">
           <img className="logo" src={logo} alt="Airflix logo" role="banner" />
         </a>
-        <div className="userActions">
-          <nav>
-            <NavLink className={setLinkState} to="/" role="button" data-tooltip="HOME">
-              <i className="fas fa-compass"></i>
-            </NavLink>
-            <NavLink className={setLinkState} to="search" role="button" data-tooltip="SEARCH">
-              <i className="fas fa-search"></i>
-            </NavLink>
-            <NavLink className={setLinkState} to="rated" role="button" data-tooltip="RATED">
-              <i className="fas fa-star"></i>
-            </NavLink>
-          </nav>
-          <i className="fas fa-life-ring support" title="SUPPORT"></i>
-        </div>
+        <nav>
+          <NavLink className={setLinkState} to="/" role="button" data-tooltip="HOME">
+            <i className="fas fa-compass"></i>
+          </NavLink>
+          <NavLink className={setLinkState} to="search" role="button" data-tooltip="SEARCH">
+            <i className="fas fa-search"></i>
+          </NavLink>
+          <NavLink className={setLinkState} to="rated" role="button" data-tooltip="RATED">
+            <i className="fas fa-star"></i>
+          </NavLink>
+        </nav>
+        <i className="fas fa-life-ring support" title="SUPPORT"></i>
       </header>
       <main>
         <Outlet />
