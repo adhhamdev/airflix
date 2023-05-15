@@ -611,9 +611,11 @@ footer {
     font-size: 2rem;
   }
   .listActions {
+    width: auto;
     overflow-x: scroll;
   }
   .listHead .arrangeActions {
     width: 200px;
+    margin: 0;
   }
 }
