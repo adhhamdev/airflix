@@ -608,4 +608,7 @@ footer {
   .listActions {
     overflow-x: scroll;
   }
+  .listHead .arrangeActions {
+    width: 200px;
+  }
 }
