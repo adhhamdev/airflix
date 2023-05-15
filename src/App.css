@@ -606,7 +606,10 @@ footer {
     font-size: 2rem;
   }
   .listHead {
-    display: grid;
+    flex-direction: column;
+  }
+  .listActions {
+    display: block;
   }
   .listHead .listActions .arrangeActions {
     width: 90vw;
