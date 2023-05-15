@@ -576,7 +576,7 @@ footer {
 /* Media Queries */
 @media screen and (max-width: 768px) {
   header .logo {
-    width: 20%;
+    width: 20vw;
   }
   nav, .paginator {
     position: fixed;
