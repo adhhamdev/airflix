@@ -575,7 +575,7 @@ footer {
 /* Media Queries */
 @media screen and (max-width: 768px) {
   header .logo {
-    width: 200px;
+    width: 120px;
   }
   nav, .paginator {
     position: fixed;
@@ -590,12 +590,12 @@ footer {
   }
   .paginator {
     padding: 5px;
-    bottom: 4%;
+    bottom: 6%;
     background-color: rgba(0, 0, 0, 0.9);
   }
   .paginator .pageNumber, .paginator button {
     font-size: 1rem;
-    padding: 2px 0;
+    padding: 5px 0;
   }
   .paginator button {
     width: 80px;
