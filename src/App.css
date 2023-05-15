@@ -232,7 +232,6 @@ header nav a:hover::after {
 
 .MovieCard, .PersonCard {
   position: relative;
-  min-width: 200px;
   width: 200px;
   height: auto;
   margin: 0 5px;
