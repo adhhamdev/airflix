@@ -605,6 +605,7 @@ footer {
     font-size: 2rem;
   }
   .listActions {
+    display: none;
     flex-direction: column;
   }
 }
