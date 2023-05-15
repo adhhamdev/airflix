@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import Paginator from "../components/Paginator";
 import VerticalList from '../components/VerticalList';
 
@@ -35,7 +35,7 @@ const Search = () => {
         <input type="text" placeholder="Search for a movie, person..." onChange={handleQuery} value={query} autoFocus required />
       </form>
       {query ? <VerticalList list={results} /> : <p className="noResults">NO RESULTS...</p>}
-      {query && <Paginator prevFunc={turnPrevPage} page={searchPage} nextFunc={turnNextPage}/>}
+      {query && <Paginator prevFunc={turnPrevPage} page={searchPage} nextFunc={turnNextPage} />}
     </div>
   )
 }

@@ -8,8 +8,8 @@ const App = () => {
   useEffect(() => {
     const authorize = async () => {
       let storedSession = JSON.parse(localStorage.getItem('guestSession'));
-      if(storedSession == null) {
-        const createGuestSession = await (await fetch('https://api.themoviedb.org/3/authentication/guest_session/new?api_key=08a7337c36b62d4a8a9dfafd26b3afb6')).json(); 
+      if (storedSession == null) {
+        const createGuestSession = await (await fetch('https://api.themoviedb.org/3/authentication/guest_session/new?api_key=08a7337c36b62d4a8a9dfafd26b3afb6')).json();
         storedSession = createGuestSession;
         localStorage.setItem('guestSession', JSON.stringify(createGuestSession))
       }
@@ -18,10 +18,10 @@ const App = () => {
   }, [])
 
   const navigation = useNavigation();
-  const setLinkState = ({isActive, isPending}) => {
+  const setLinkState = ({ isActive, isPending }) => {
     return isActive ? "active" : isPending ? "pending" : "";
   }
-  
+
   return (
     <div className="App">
       {(navigation.state == 'submitting' || navigation.state == 'loading') && <div className="loader"></div>}
