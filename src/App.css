@@ -587,12 +587,11 @@ footer {
     bottom: 0;
   }
   .paginator {
-    width: 100vw;
     bottom: 4%;
     background-color: rgba(0, 0, 0, 0.9);
   }
   .MovieCard {
-    width: 100%;
+    width: 50%;
     margin: 0;
     font-size: 1.8rem;
   }
