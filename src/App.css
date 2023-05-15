@@ -575,8 +575,8 @@ footer {
 
 /* Media Queries */
 @media screen and (max-width: 768px) {
-  header {
-    height: 10vh;
+  header .logo {
+    width: 20%;
   }
   nav, .paginator {
     position: fixed;
@@ -594,7 +594,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.9);
   }
   .MovieCard {
-    width: 40%;
+    width: 35%;
     font-size: 1.8rem;
   }
   .MovieCard .title {
@@ -604,6 +604,9 @@ footer {
     margin: 10px;
     padding: 10px;
     font-size: 2rem;
+  }
+  .listHead .listActions {
+    display: grid;
   }
   .listHead .listActions .arrangeActions {
     width: 90vw;
