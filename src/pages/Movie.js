@@ -4,7 +4,6 @@ import { useState } from "react";
 
 const Movie = () => {
     const { movie, keywords, similars, videos, watchProviders, credits, recommendations } = useLoaderData();
-    console.log(watchProviders)
     const [starBtn, setStarBtn] = useState({ text: "RATE IT", icon: "far fa-star" });
     const imgBaseURL = "https://image.tmdb.org/t/p/w500";
     window.onscroll = () => {
@@ -109,7 +108,7 @@ const Movie = () => {
                         {videos.length ? videos.map((video) => {
                             return (
                                 <div key={video.id} className="video">
-                                    <iframe loading="lazy" width="560" height="315" src={`https://www.youtube.com/embed/${video.key}`} title={video.name} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                    <iframe loading="lazy" width="560" height="315" src={`https://www.youtube.com/embed/${video.key}`} title={video.name} frameBorder="0" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen></iframe>
                                     <p className="videoName">{video.name}</p>
                                 </div>
                             )
