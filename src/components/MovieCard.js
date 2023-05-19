@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { rateHandle } from "../handlers/handlers";
 
 const MovieCard = ({ id, title, name, src, vote_average, rating }) => {
+  const location = useLocation();
   const imgBaseURL = "https://image.tmdb.org/t/p/w500";
   const imgSrc = imgBaseURL + src;
   return (
@@ -9,7 +10,7 @@ const MovieCard = ({ id, title, name, src, vote_average, rating }) => {
       <img src={imgSrc} alt={title} loading="lazy" />
       <div className="info">
         <p className="title">
-          <Link to={`movie/${id}`}>{title || name}</Link>
+          <Link to={location.pathname != '/' ? `../movie/${id}`: `movie/${id}`}>{title || name}</Link>
         </p>
         <p className="vote_average">
           <i className="fas fa-star"></i> {vote_average}

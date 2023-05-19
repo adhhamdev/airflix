@@ -4,6 +4,14 @@ import { Outlet, NavLink, useNavigation } from "react-router-dom";
 import { useEffect } from "react";
 
 const App = () => {
+  if (window.innerWidth < 1024) {
+    document.body.innerHTML = `<div class="blocker">
+    <h1>Sorry, this website is not available on mobile or tablet devices.</h1>
+    <p>Please visit this website on a desktop device.</p>
+    <p>Thank you.</p>
+    </div>`;
+    document.body.style.overflow = "hidden";
+  }
   const navigation = useNavigation();
 
   useEffect(() => {

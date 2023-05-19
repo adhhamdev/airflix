@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Movie = () => {
     const { movie, keywords, similars, videos, watchProviders, credits, recommendations } = useLoaderData();
-    console.log(recommendations)
+    console.log(watchProviders)
     const [starBtn, setStarBtn] = useState({ text: "RATE IT", icon: "far fa-star" });
     const imgBaseURL = "https://image.tmdb.org/t/p/w500";
     window.onscroll = () => {
@@ -76,7 +76,7 @@ const Movie = () => {
                 <div className="watchProviders">
                     <h2>WATCH PROVIDERS</h2>
                     {watchProviders.length ? <div className="watchProvidersList">
-                        {(watchProviders.find(provider => provider[0] == 'US' || provider[0] == 'AT')[1].flatrate || watchProviders.find(provider => provider[0] == 'US' || provider[0] == 'AT')[1].buy).map((provider) => {
+                        {(watchProviders.find(provider => provider[0] == 'US' || provider[0] == 'AT' || provider[0] == 'AD')?.[1].flatrate || watchProviders.find(provider => provider[0] == 'US' || provider[0] == 'AT')[1].buy).map((provider) => {
                             return (
                                 <div key={provider.provider_name} className="watchProvider">
                                     <img className="providerLogo" src={`https://www.themoviedb.org/t/p/original${provider.logo_path}`} alt={provider.provider_name} />
