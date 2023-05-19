@@ -108,7 +108,7 @@ const Movie = () => {
                         {videos.length ? videos.map((video) => {
                             return (
                                 <div key={video.id} className="video">
-                                    <iframe loading="lazy" width="560" height="315" src={`https://www.youtube.com/embed/${video.key}`} title={video.name} frameBorder="0" allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen></iframe>
+                                    <iframe loading="lazy" width="560" height="315" src={`https://www.youtube.com/embed/${video.key}`} title={video.name} allow="fullscreen"></iframe>
                                     <p className="videoName">{video.name}</p>
                                 </div>
                             )
