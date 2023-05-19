@@ -18,7 +18,8 @@
   "scope": "/",
   "related_applications": [
     {
-      "platform": "web"
+      "platform": "web",
+      "url": "https://adhhamdev.netlify.app"
     },
     {
       "platform": "play",
