@@ -76,7 +76,7 @@ const Movie = () => {
                     <div className="watchProviders">
                         <h2>WATCH PROVIDERS</h2>
                         <div className="watchProvidersList">
-                            {watchProviders.find(provider => provider[0] == 'US')[1].buy.map((provider) => {
+                            {(watchProviders.find(provider => provider[0] == 'US')[1].flatrate || watchProviders.find(provider => provider[0] == 'US')[1].buy).map((provider) => {
                                 return (
                                     <div key={provider.provider_name} className="watchProvider">
                                         <img className="providerLogo" src={`https://www.themoviedb.org/t/p/original${provider.logo_path}`} alt={provider.provider_name} />

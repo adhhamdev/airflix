@@ -220,7 +220,11 @@ const Home = () => {
         page={appropriatePage()}
         nextFunc={() => turnNextPage(setPage, arrange, page, discovers)}
       />
+      <footer>
+        <small>&copy;Copyright {new Date().getFullYear()} • built by Adhham Dev with ❤️ • All Rights Reserved</small>
+      </footer>
     </div>
+    
   );
 };
 

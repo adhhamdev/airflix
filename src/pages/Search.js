@@ -14,7 +14,6 @@ const Search = () => {
     const search = async () => {
       const searched = await fetch(`https://api.themoviedb.org/3//search/multi?api_key=08a7337c36b62d4a8a9dfafd26b3afb6&${query && `query=${query}`}&page=${searchPage}`);
       const searchedJson = await searched.json();
-      console.log(searchedJson);
       setResults(searchedJson.results);
       if (searchedJson.results.length > 0) {
         caches.open('searched').then(cache => cache.put('searched', new Response(JSON.stringify(searchedJson))));

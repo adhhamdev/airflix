@@ -41,9 +41,6 @@ const App = () => {
       <main>
         <Outlet />
       </main>
-      <footer>
-        <small>&copy;Copyright {new Date().getFullYear()} • built by Adhham Dev with ❤️ • All Rights Reserved</small>
-      </footer>
       <div className="darkCorner"></div>
     </div>
   );
