@@ -17,9 +17,9 @@ const MovieCard = ({ id, title, name, src, vote_average, rating }) => {
       </div>
       <div className="actions">
         <i
-          className={`${rating ? "fas" : "far"} fa-star`}
+          className='far fa-star'
           role="button"
-          title={rating ? `UNRATE: ${rating}` : "RATE"}
+          title='RATE IT'
           onClick={() => rateHandle(id, title, name, rating)}
         ></i>
       </div>

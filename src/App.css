@@ -198,7 +198,7 @@ header nav a:hover::after {
   padding: 10px;
 }
 
-.Rated .verticalList {
+.Rated .verticalList, .Search .verticalList {
   display: grid;
   row-gap: 10px;
   grid-template-columns: repeat(auto-fit, 230px);
@@ -378,20 +378,18 @@ header nav a:hover::after {
   grid-template-areas: 
   "nav nav"
   "movie similar";
-  grid-template-rows: 8vh 1fr;
-  grid-template-columns: 55vw 1fr;
-  padding: 10px;
+  grid-template-rows: 9vh 1fr;
+  grid-template-columns: 60vw 1fr;
 }
 
 .Movie .movieNav {
   grid-area: nav;
   display: flex;
   align-items: center;
-  padding: 10px;
 }
 
 .Movie .movieNav .backBtn {
-  margin-right: 20px;
+  margin-left: 10px;
   border-radius: 20px;
   padding: 5px 20px;
   text-decoration: none;
@@ -410,15 +408,21 @@ header nav a:hover::after {
 }
 
 .Movie .movieInfo {
+  margin-left: 10px;
   height: fit-content;
   border-radius: 20px;
   padding: 10px;
+  background: #fff;
   box-shadow: 1px 2px 10px 2px rgba(0, 0, 0, 0.4);
 }
 
 .Movie .movieContent > div {
   margin: 20px 0;
 } 
+
+.Movie h2 {
+  margin-bottom: 20px;
+}
 
 .Movie .showcase {
   display: flex;
@@ -449,23 +453,23 @@ header nav a:hover::after {
 }
 
 .movieStarBtn {
-  border: 5px solid #fff;
+  border: 5px double #fff;
   border-radius: 30px;
   padding: 6px 20px;
   font-weight: 900;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   color: #fff;
-  background-color: rgb(0, 94, 255);
+  background-color: #0ba;
   cursor: pointer;
 }
 .movieStarBtn:hover {
-  border-style: double;
+  border-style: solid;
 }
 
 .properties {
   border-radius: 10px;
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 150, 0.1);
 }
 
 .property span {
@@ -477,12 +481,62 @@ header nav a:hover::after {
   margin: 5px;
   padding: 5px 10px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
+  color: #fff;
+  background-color: #000;
+}
+
+.watchProviders {
+  margin: 20px 0;
+}
+
+.watchProvidersList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.watchProvidersList .watchProvider {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  padding: 10px;
+  color: #fff;
+  background-color: #000;
+}
+
+.watchProvidersList .watchProvider img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.videos .video {
+  margin-bottom: 30px;
+}
+
+.videos .video iframe {
+  width: 80%;
+  border-radius: 10px;
+}
+
+.videos .video .videoName {
+  max-width: 80%;
+  border-radius: 0 0 10px 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  text-align: center;
+  background-color: rgba(0, 0, 150, 0.1);
 }
 
 .Movie .similarMovies {
   grid-area: similar;
   padding: 10px;
+}
+
+.noSimilars {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #456;
 }
 
 .similarMoviesTitle {
@@ -512,7 +566,7 @@ header nav a:hover::after {
 }
 
 .similarMovieTitle {
-  width: 380px;
+  width: 320px;
   overflow-x: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -526,20 +580,34 @@ header nav a:hover::after {
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   box-shadow: 0 0 30px 30px rgba(0, 0, 0, 0.7);
-  backdrop-filter: saturate(10%);
-  z-index: 1;
-  height: 5vh;
+  z-index: 2;
+  height: 2vh;
 }
 
 /* Footer */
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 10px 20px;
-  color: #fff;
+  text-align: right;
+}
+
+.scrollToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  font-size: 1.5rem;
   text-align: center;
-  background-color: #001;
+  line-height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scrollToTop:hover {
+  color: #fff;
+  background-color: #0e0d0d;
 }
 
 /* Scrollbar */

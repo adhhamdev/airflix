@@ -1,35 +1,18 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom"
+import { Link, useLoaderData, } from "react-router-dom"
 import { rateHandle } from "../handlers/handlers"
+import { useState } from "react";
 
 const Movie = () => {
+    const { movie, keywords, similars, videos, watchProviders, credits, recommendations } = useLoaderData();
+    const [starBtn, setStarBtn] = useState({ text: "RATE IT", icon: "far fa-star" });
     const imgBaseURL = "https://image.tmdb.org/t/p/w500";
-    const params = useParams();
-    const movieId = params.id;
-    const [movieData, setMovieData] = useState({
-        movie: {
-            genres: []
-        },
-        keywords: [],
-        similarMovies: [],
-    });
-    useEffect(() => {
-        const getMovie = async () => {
-            const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`);
-            const data = await response.json();
-            const getKeywords = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/keywords?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`);
-            const keywordsJson = await getKeywords.json();
-            const getSimilars = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`);
-            const similarsJson = await getSimilars.json();
-            setMovieData({ movie: data, keywords: keywordsJson.keywords, similarMovies: similarsJson.results })
-            caches.open('movies').then(cache => {
-                cache.put(`movie-${movieId}`, new Response(JSON.stringify(data)));
-                cache.put(`keywords-${movieId}`, new Response(JSON.stringify(keywordsJson)));
-                cache.put(`similars-${movieId}`, new Response(JSON.stringify(similarsJson)));
-            });
+    window.onscroll = () => {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.querySelector(".scrollToTop").style.display = "block";
+        } else {
+            document.querySelector(".scrollToTop").style.display = "none";
         }
-        getMovie()
-    }, [params]);
+    }
     return (
         <div className="Movie">
             <div className="movieNav">
@@ -37,58 +20,82 @@ const Movie = () => {
             </div>
             <main className="movieInfo">
                 <div className="showcase">
-                    {movieData.movie.backdrop_path ? <img className="backdrop" src={imgBaseURL + movieData.movie.backdrop_path} alt={movieData.movie.original_title} /> : <div className="backdropFB"></div>}
+                    {movie.backdrop_path ? <img className="backdrop" src={imgBaseURL + movie.backdrop_path} alt={movie.original_title} /> : <div className="backdropFB"></div>}
                     <div className="showcaseInfo">
-                        <h1 className="movieTitle" title={movieData.movie.original_title}>{movieData.movie.original_title}</h1>
-                        <p className="movieVote"><i className="fas fa-star"></i> {movieData.movie.vote_average}</p>
-                        <p className="movieLang"><i className="fas fa-language"></i> {movieData.movie.original_language}</p>
+                        <h1 className="movieTitle" title={movie.original_title}>{movie.original_title}</h1>
                         <button className="movieStarBtn"
-                            onClick={() => rateHandle(movieData.movie.id, movieData.movie.title, movieData.movie.name, movieData.movie.rating)}
-                        >
-                            <i className="far fa-star"></i> RATE IT
+                            onClick={() => {
+                                if (starBtn.text == "RATE IT") {
+                                    rateHandle(movie.id, movie.title, movie.name, movie.rating)
+                                    setStarBtn({ text: "RATED", icon: "fas fa-star" })
+                                } else {
+                                    setStarBtn({ text: "RATE IT", icon: "far fa-star" })
+                                }
+                            }}
+                        > 
+                            <i className={starBtn.icon}></i> {starBtn.text}
                         </button>
+                        <p className="movieLang"><i className="fas fa-language"></i> {movie.original_language}</p>
                     </div>
                 </div>
                 <div className="movieContent">
-                    {movieData.movie.tagline &&
+                    {movie.tagline &&
                         <div>
                             <h2>TAGLINE</h2>
-                            <p className="movieTagline">{movieData.movie.tagline}</p>
+                            <p className="movieTagline">{movie.tagline}</p>
                         </div>
                     }
                     <div>
                         <h2>OVERVIEW</h2>
-                        <p className="movieOverview">{movieData.movie.overview}</p>
+                        <p className="movieOverview">{movie.overview}</p>
                     </div>
                     <div className="properties">
-                        <p className="property movieReleaseDate"><span>RELEASE DATE :</span> {movieData.movie.release_date}</p>
-                        <p className="property movieRuntime"><span>RUNTIME :</span> {movieData.movie.runtime} min</p>
-                        <p className="property movieBudget"><span>BUDGET :</span> {movieData.movie.budget} $</p>
-                        <p className="property movieRevenue"><span>REVENUE :</span> {movieData.movie.revenue} $</p>
-                        <p className="property movieStatus"><span>STATUS :</span> {movieData.movie.status}</p>
+                        <p className="property movieReleaseDate"><span>RELEASE DATE :</span> {movie.release_date}</p>
+                        <p className="property movieRuntime"><span>RUNTIME :</span> {movie.runtime} min</p>
+                        <p className="property movieBudget"><span>BUDGET :</span> {movie.budget} $</p>
+                        <p className="property movieRevenue"><span>REVENUE :</span> {movie.revenue} $</p>
+                        <p className="property movieStatus"><span>STATUS :</span> {movie.status}</p>
                     </div>
                     <div className="property keywords">
                         <h2>KEYWORDS</h2>
                         <div>
-                            {movieData.keywords.map((kw) => {
-                                return (
-                                    <span key={kw.id} className="keyword">{kw.name}</span>
-                                )
-                            })}
+                            {keywords.map((keyword) => {
+                                return <span key={keyword.id} className="keyword">{keyword.name}</span>
+                            })
+                            }
                         </div>
                     </div>
                     <div className="movieGenres">
                         <h2>GENRES</h2>
-                        {movieData.movie.genres.map((genre) => {
+                        {movie.genres.map((genre) => {
                             return <span key={genre.id} className="genre">{genre.name}</span>
                         })}
                     </div>
                 </div>
-                <div className="videos">
-
-                </div>
-                <div className="watchProviders">
-
+                {watchProviders.length > 0 &&
+                    <div className="watchProviders">
+                        <h2>WATCH PROVIDERS</h2>
+                        <div className="watchProvidersList">
+                            {watchProviders.find(provider => provider[0] == 'US')[1].buy.map((provider) => {
+                                return (
+                                    <div key={provider.provider_name} className="watchProvider">
+                                        <img className="providerLogo" src={`https://www.themoviedb.org/t/p/original${provider.logo_path}`} alt={provider.provider_name} />
+                                        <p className="providerName">{provider.provider_name}</p>
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    </div>}
+                <div className="videos"> 
+                    <h2>VIDEOS</h2>
+                    {videos.map((video) => {
+                        return (
+                            <div key={video.id} className="video">
+                                <iframe loading="lazy" width="560" height="315" src={`https://www.youtube.com/embed/${video.key}`} title={video.name} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                                <p className="videoName">{video.name}</p>
+                            </div>
+                        )
+                    })}
                 </div>
                 <div className="credits">
 
@@ -100,7 +107,7 @@ const Movie = () => {
             <aside className="similarMovies">
                 <h2 className="similarMoviesTitle">SIMILAR MOVIES</h2>
                 <div className="similarMoviesList">
-                    {movieData.similarMovies.map((movie) => {
+                    {similars ? similars.map((movie) => {
                         return (
                             <Link to={`../movie/${movie.id}`} key={movie.id} className="similarMovie">
                                 {movie.backdrop_path ? <img className="similarTN" src={imgBaseURL + movie.backdrop_path} alt="Movie Backdrop" /> : <div className="similarTNFallback"></div>}
@@ -111,9 +118,12 @@ const Movie = () => {
                                 </div>
                             </Link>
                         )
-                    })}
+                    }) : <p className="noSimilars">No similar movies found...</p>}
                 </div>
             </aside>
+            <div className="scrollToTop" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <i className="fas fa-arrow-up"></i>
+            </div>
         </div>
     )
 }

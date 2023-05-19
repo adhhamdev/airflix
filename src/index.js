@@ -6,6 +6,7 @@ import Search from "./pages/Search";
 import Rated from "./pages/Rated";
 import Movie from "./pages/Movie";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { authorize } from "./handlers/handlers";
 
 const router = createBrowserRouter([
   {
@@ -34,10 +35,34 @@ const router = createBrowserRouter([
       {
         path: 'rated',
         element: <Rated />
+        
       },
       {
         path: 'movie/:id',
-        element: <Movie />
+        element: <Movie />,
+        loader: async ({ params }) => {
+          const movieId = params.id;
+          const movie = await (await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`)).json();
+          const keywords = await (await fetch(`https://api.themoviedb.org/3/movie/${movieId}/keywords?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`)).json();
+          const similars = await (await fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`)).json();
+          const videos = await (await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`)).json();
+          const watchProviders = await (await fetch(`https://api.themoviedb.org/3/movie/${movieId}/watch/providers?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`)).json();
+          const credits = await (await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`)).json();
+          const recommendations = await (await fetch(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=08a7337c36b62d4a8a9dfafd26b3afb6`)).json();
+
+          if (movie) {
+            caches.open('movies').then(cache => {
+              cache.put(`movie-${movieId}`, new Response(JSON.stringify(movie)));
+              cache.put(`keywords-${movieId}`, new Response(JSON.stringify(keywords)));
+              cache.put(`similars-${movieId}`, new Response(JSON.stringify(similars)));
+              cache.put(`videos-${movieId}`, new Response(JSON.stringify(videos)));
+              cache.put(`watchProviders-${movieId}`, new Response(JSON.stringify(watchProviders)));
+              cache.put(`credits-${movieId}`, new Response(JSON.stringify(credits)));
+              cache.put(`recommendations-${movieId}`, new Response(JSON.stringify(recommendations)));
+            });
+          }
+          return { movie, keywords: keywords.keywords, similars: similars.results, videos: videos.results, watchProviders: Object.entries(watchProviders.results), credits: credits.cast, recommendations: recommendations.results };
+        }
       }
     ]
   }
