@@ -9,7 +9,7 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
+  "display": "fullscreen",
   "theme_color": "#D2EAF5",
   "background_color": "#D2EAF5",
   "description": "Airflix - Discover your next favorite movie",
