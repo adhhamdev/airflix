@@ -199,14 +199,15 @@ header nav a:hover::after {
 
 .Rated .verticalList, .Search .verticalList {
   display: grid;
+  gap: 20px;
   row-gap: 10px;
-  grid-template-columns: repeat(auto-fit, 230px);
+  grid-template-columns: repeat(auto-fit, 180px);
   padding: 10px;
 }
 
 .MovieCard, .PersonCard {
   position: relative;
-  min-width: 200px;
+  min-width: 180px;
   height: auto;
   margin: 0 5px;
   border-radius: 10px;
