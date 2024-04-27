@@ -16,19 +16,31 @@ const App = () => {
 
   useEffect(() => {
     const authorize = async () => {
-      let storedSession = JSON.parse(localStorage.getItem('guestSession'));
+      let storedSession = JSON.parse(localStorage.getItem("guestSession"));
       if (storedSession == null) {
-        const createGuestSession = await (await fetch('https://api.themoviedb.org/3/authentication/guest_session/new?api_key=08a7337c36b62d4a8a9dfafd26b3afb6')).json();
+        const createGuestSession = await (
+          await fetch(
+            "https://api.themoviedb.org/3/authentication/guest_session/new?api_key=08a7337c36b62d4a8a9dfafd26b3afb6"
+          )
+        ).json();
         storedSession = createGuestSession;
-        localStorage.setItem('guestSession', JSON.stringify(createGuestSession))
+        localStorage.setItem(
+          "guestSession",
+          JSON.stringify(createGuestSession)
+        );
       }
-    }
+    };
     authorize();
-  }, [])
+  }, []);
 
   return (
     <div className="App">
-      {(navigation.state == 'submitting' || navigation.state == 'loading') && <div className="loader"><img src={logo} alt="Airflix Logo" /></div>}
+      {(navigation.state == "submitting" || navigation.state == "loading") && (
+        <div className="loader">
+          <img src={logo} alt="Airflix Logo" />
+          <div className="darkCorner"></div>
+        </div>
+      )}
       <header>
         <a href="/">
           <img className="logo" src={logo} alt="Airflix logo" role="banner" />
@@ -52,5 +64,5 @@ const App = () => {
       <div className="darkCorner"></div>
     </div>
   );
-}
+};
 export default App;

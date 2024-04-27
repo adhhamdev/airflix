@@ -5,9 +5,7 @@ const PersonCard = ({ original_name, profile_path, popularity }) => {
     <div className="PersonCard">
       <img src={imgSrc} alt={original_name} loading="lazy" />
       <div className="info">
-        <p className="name">
-          <a href="">{original_name}</a>
-        </p>
+        <p className="name">{original_name}</p>
         <p className="popularity">
           <i className="fas fa-star"></i> {popularity}
         </p>

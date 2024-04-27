@@ -6,7 +6,6 @@ import Search from "./pages/Search";
 import Rated from "./pages/Rated";
 import Movie from "./pages/Movie";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { authorize } from "./handlers/handlers";
 
 const router = createBrowserRouter([
   {

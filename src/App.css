@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid; */
 }
 
 body {
@@ -242,7 +241,7 @@ header nav a:hover::after {
   padding: 10px;
   line-height: 25px;
   color: #000;
-  background-color:  #fff;
+  background-color:  rgba(200, 200, 200, .9);
   transition: all 0.2s ease;
 }
 
@@ -251,20 +250,17 @@ header nav a:hover::after {
   text-overflow: ellipsis;
 }
 
-.MovieCard .info .title a, .PersonCard .info .name a {
+.MovieCard .info .title a, .PersonCard .info .name {
   text-decoration: none;
   color: #000;
   font-weight: bold;
-}
-.MovieCard .info .title a:hover, .PersonCard .info .name a:hover {
-  color: #789;
 }
 
 .MovieCard .info .rating {
   color: #0ba;
 }
 .PersonCard .info .popularity {
-  color: purple;
+  color: #112233;
 }
 
 .MovieCard .actions {
@@ -367,6 +363,7 @@ header nav a:hover::after {
 .noResults {
   height: 40vh;
   display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
   color: #456;
@@ -409,7 +406,7 @@ header nav a:hover::after {
 
 .Movie .movieInfo {
   height: fit-content;
-  padding: 10px 20px;
+  padding: 20px;
   background: #fff;
 }
 
@@ -625,9 +622,10 @@ header nav a:hover::after {
   background-image: linear-gradient(45deg, #456 50%, #789 50%);
 }
 
-.similarMovieTitle, .recommendedMovieTitle {
-  width: 320px;
-  overflow-x: hidden;
+.similarMovieTitle,
+.recommendedMovieTitle {
+  max-width: 280px;
+  overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-weight: bold;
