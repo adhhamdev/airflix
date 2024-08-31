@@ -199,6 +199,57 @@ header nav a:hover::after {
 
 .MovieCard,
 .PersonCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.PersonCard:hover {
+  transform: translateY(-5px);
+}
+
+.PersonCard .person-image {
+  width: 100%;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+}
+
+.PersonCard .person-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.PersonCard:hover .person-image img {
+  transform: scale(1.05);
+}
+
+.PersonCard .info {
+  padding: 15px;
+  text-align: center;
+}
+
+.PersonCard .name {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.PersonCard .popularity {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.PersonCard .popularity i {
+  color: #3498db;
+  margin-right: 5px;
+}
+
+.MovieCard {
   position: relative;
   min-width: 180px;
   height: auto;
@@ -207,30 +258,26 @@ header nav a:hover::after {
   transition: all 0.3s ease;
   overflow: hidden;
 }
-.PersonCard {
-  border-radius: 30px;
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
-}
-.MovieCard:hover img,
-.PersonCard:hover img {
+
+.MovieCard:hover img {
   filter: brightness(50%);
 }
-.MovieCard:hover .info,
-.PersonCard:hover .info {
+
+.MovieCard:hover .info {
   bottom: 0;
 }
+
 .MovieCard:hover .actions {
   display: block;
 }
 
-.MovieCard img,
-.PersonCard img {
+.MovieCard img {
   width: 100%;
   height: 100%;
   border-radius: inherit;
 }
-.MovieCard .info,
-.PersonCard .info {
+
+.MovieCard .info {
   position: absolute;
   bottom: -50%;
   width: 100%;
@@ -854,11 +901,6 @@ footer {
     font-size: 0.9rem;
   }
 
-  .MovieCard,
-  .PersonCard {
-    min-width: 140px;
-  }
-
   .MovieCard .info .title,
   .PersonCard .info .name {
     font-size: 0.8rem;
@@ -887,9 +929,6 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 10px;
   }
-}
-
-@media screen and (max-width: 480px) {
   .Movie h1 {
     font-size: 1.3rem;
   }
