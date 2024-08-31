@@ -229,20 +229,31 @@ header nav a:hover::after {
   height: 100%;
   border-radius: inherit;
 }
+  .MovieCard .info,
+  .PersonCard .info {
+    position: absolute;
+    bottom: -50%;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    line-height: 25px;
+    color: #000;
+    background-color: rgba(200, 200, 200, 0.9);
+    transition: all 0.2s ease;
+  }
 
-.MovieCard .info,
-.PersonCard .info {
-  position: absolute;
-  bottom: -50%;
-  width: 100%;
-  border-radius: 0 0 10px 10px;
-  padding: 10px;
-  line-height: 25px;
-  color: #000;
-  background-color: rgba(200, 200, 200, 0.9);
-  transition: all 0.2s ease;
-}
+  .MovieCard .info-link {
+    text-decoration: none;
+    color: inherit;
+  }
 
+  .MovieCard .info-link:hover {
+    text-decoration: none;
+  }
+
+  .MovieCard .info {
+    cursor: pointer;
+  }
 .MovieCard .info .title,
 .PersonCard .info .name {
   overflow-x: hidden;
@@ -653,18 +664,6 @@ header nav a:hover::after {
 .recommendedTNFallback {
   background-image: linear-gradient(45deg, #456 50%, #789 50%);
 }
-
-.darkCorner {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0 30px 30px rgba(0, 0, 0, 0.7);
-  z-index: 2;
-  height: 2vh;
-}
-
 /* Footer */
 footer {
   padding: 10px 20px;
@@ -760,6 +759,31 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+  .MovieCard,
+  .PersonCard {
+    min-width: 140px;
+  }
+
+  .MovieCard .info,
+  .PersonCard .info {
+    bottom: 0;
+    height: auto;
+    min-height: 60px;
+  }
+
+  .MovieCard .actions {
+    display: block;
+    top: 5px;
+    right: 5px;
+  }
+
+  .MovieCard .actions i {
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+  }
+
   .Movie h1 {
     font-size: 1.5rem;
   }
@@ -784,7 +808,19 @@ footer {
   }
 
   .videos .video iframe {
-    width: 100%;
+}
+
+@media screen and (max-width: 480px) {
+  .MovieCard,
+  .PersonCard {
+    min-width: 120px;
+  }
+
+  .MovieCard .actions i {
+    padding: 10px;
+    font-size: 1rem;
+  }
+}    width: 100%;
   }
 
   header {

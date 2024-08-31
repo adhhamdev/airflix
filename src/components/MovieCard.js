@@ -10,19 +10,25 @@ const MovieCard = ({ id, title, name, src, vote_average, rating }) => {
     <div className='MovieCard'>
       <img src={imgSrc} alt={title || name} loading='lazy' />
 
-      <div className='info'>
-        <p className='title'>
-          <Link
-            to={location.pathname !== '/' ? `../movie/${id}` : `movie/${id}`}>
-            {title || name}
-          </Link>
-        </p>
+      <Link
+        to={location.pathname !== '/' ? `../movie/${id}` : `movie/${id}`}
+        className='info-link'>
+        <div className='info'>
+          <p className='title'>{title || name}</p>
+          <p className='vote_average'>
+            <i className='fas fa-star' /> {vote_average}
+          </p>
+        </div>
+      </Link>
 
-        <p className='vote_average'>
-          <i className='fas fa-star' /> {vote_average}
-        </p>
+      <div className='actions'>
+        <i
+          className={rating ? 'fas fa-star' : 'far fa-star'}
+          role='button'
+          title={rating ? `UNRATE: ${rating}` : 'RATE'}
+          onClick={() => rateHandle(id, title, name, rating)}
+        />
       </div>
-
       <div className='actions'>
         <i
           className={rating ? 'fas fa-star' : 'far fa-star'}

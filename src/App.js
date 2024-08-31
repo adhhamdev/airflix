@@ -30,7 +30,6 @@ const App = () => {
       {(navigation.state == 'submitting' || navigation.state == 'loading') && (
         <div className='loader'>
           <img src={logo} alt='Airflix Logo' />
-          <div className='darkCorner'></div>
         </div>
       )}
       <header>
@@ -52,7 +51,6 @@ const App = () => {
       <main>
         <Outlet />
       </main>
-      <div className='darkCorner'></div>
     </div>
   );
 };
