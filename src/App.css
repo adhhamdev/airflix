@@ -6,7 +6,7 @@
 
 body {
   font-family: Poppins, serif;
-  background: #D2EAF5;
+  background: #d2eaf5;
   background-attachment: fixed;
   scroll-behavior: smooth;
 }
@@ -21,12 +21,16 @@ body {
   z-index: 10;
   width: 100vw;
   height: 100vh;
-  background: #D2EAF5;
-  animation: fade .5s forwards;
+  background: #d2eaf5;
+  animation: fade 0.5s forwards;
 }
 @keyframes fade {
-  0% {opacity: 0;}
-  50% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .loader img {
@@ -35,7 +39,6 @@ body {
 
 header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0 10px;
   box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.3);
@@ -46,18 +49,6 @@ header .logo {
   align-items: center;
   width: 10vw;
   height: auto;
-}
-
-header .support {
-  margin: 0 10px;
-  font-size: 1.8rem;
-  color: #789;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-header .support:hover {
-  color: #123;
 }
 
 header nav {
@@ -82,7 +73,7 @@ header nav a:hover {
 }
 
 header nav a.active i {
-  background: linear-gradient(135deg, #002C80 30%, deepskyblue);
+  background: linear-gradient(135deg, #002c80 30%, deepskyblue);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -173,7 +164,7 @@ header nav a:hover::after {
 
 .listHead .listActions button.active {
   color: #fff;
-  background-image: linear-gradient(135deg, #002C80 30%, deepskyblue);
+  background-image: linear-gradient(135deg, #002c80 30%, deepskyblue);
 }
 
 .listHead .arrangeActions button i {
@@ -197,7 +188,8 @@ header nav a:hover::after {
   padding: 10px;
 }
 
-.Rated .verticalList, .Search .verticalList {
+.Rated .verticalList,
+.Search .verticalList {
   display: grid;
   gap: 20px;
   row-gap: 10px;
@@ -205,7 +197,8 @@ header nav a:hover::after {
   padding: 10px;
 }
 
-.MovieCard, .PersonCard {
+.MovieCard,
+.PersonCard {
   position: relative;
   min-width: 180px;
   height: auto;
@@ -218,23 +211,27 @@ header nav a:hover::after {
   border-radius: 30px;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.3);
 }
-.MovieCard:hover img, .PersonCard:hover img {
+.MovieCard:hover img,
+.PersonCard:hover img {
   filter: brightness(50%);
 }
-.MovieCard:hover .info, .PersonCard:hover .info {
+.MovieCard:hover .info,
+.PersonCard:hover .info {
   bottom: 0;
 }
 .MovieCard:hover .actions {
   display: block;
 }
 
-.MovieCard img, .PersonCard img {
+.MovieCard img,
+.PersonCard img {
   width: 100%;
   height: 100%;
   border-radius: inherit;
 }
 
-.MovieCard .info, .PersonCard .info {
+.MovieCard .info,
+.PersonCard .info {
   position: absolute;
   bottom: -50%;
   width: 100%;
@@ -242,16 +239,18 @@ header nav a:hover::after {
   padding: 10px;
   line-height: 25px;
   color: #000;
-  background-color:  rgba(200, 200, 200, .9);
+  background-color: rgba(200, 200, 200, 0.9);
   transition: all 0.2s ease;
 }
 
-.MovieCard .info .title, .PersonCard .info .name {
+.MovieCard .info .title,
+.PersonCard .info .name {
   overflow-x: hidden;
   text-overflow: ellipsis;
 }
 
-.MovieCard .info .title a, .PersonCard .info .name {
+.MovieCard .info .title a,
+.PersonCard .info .name {
   text-decoration: none;
   color: #000;
   font-weight: bold;
@@ -307,7 +306,8 @@ header nav a:hover::after {
   padding: 10px;
 }
 
-.paginator button, .paginator .pageNumber {
+.paginator button,
+.paginator .pageNumber {
   min-width: 40px;
   margin: 0 5px;
   border: none;
@@ -373,9 +373,9 @@ header nav a:hover::after {
 /* Movie Page */
 .Movie {
   display: grid;
-  grid-template-areas: 
-  "nav nav"
-  "movie similar";
+  grid-template-areas:
+    'nav nav'
+    'movie similar';
   grid-template-rows: 9vh 1fr;
   grid-template-columns: 60vw 1fr;
 }
@@ -404,53 +404,54 @@ header nav a:hover::after {
 .Movie .movieNav .backBtn i {
   margin-right: 5px;
 }
-
 .Movie .movieInfo {
-  height: fit-content;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
   background: #fff;
-}
-
-.Movie .movieContent > div {
-  margin: 20px 0;
-} 
-
-.Movie h2 {
-  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .Movie .showcase {
   display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
 }
 
-.showcaseInfo p, .showcaseInfo button {
-  margin: 10px 0;
-  font-size: 1.2rem;
-}
-
-.backdrop, .backdropFB {
-  width: 50%;
-  border-radius: 20px;
-  margin-right: 20px;
+.backdrop,
+.backdropFB {
+  width: 60%;
+  border-radius: 10px;
+  margin-right: 30px;
   aspect-ratio: 16/9;
 }
 .Movie .backdropFB {
   background-image: linear-gradient(45deg, #456 50%, #789 50%);
 }
 
-.Movie h1 {
-  width: 26vw;
-  white-space: nowrap;
-  font-size: 2rem;
-  font-weight: 900;
-  text-overflow: ellipsis;
-  overflow-x: hidden;
+.showcaseInfo {
+  flex: 1;
+}
+
+.movieTitle {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.movieMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #666;
 }
 
 .movieStarBtn {
   border: 5px double #fff;
   border-radius: 30px;
-  padding: 6px 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
   font-weight: 900;
   font-family: Poppins, Arial, Helvetica, sans-serif;
   color: #fff;
@@ -461,7 +462,21 @@ header nav a:hover::after {
   border-style: solid;
 }
 
+.movieContent > div {
+  margin-bottom: 30px;
+}
+
+.movieContent h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
 .properties {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
   border-radius: 10px;
   padding: 10px;
   background-color: rgba(0, 0, 150, 0.1);
@@ -471,7 +486,8 @@ header nav a:hover::after {
   font-weight: bold;
 }
 
-.keyword, .genre {
+.keyword,
+.genre {
   display: inline-block;
   margin: 5px;
   padding: 5px 10px;
@@ -485,8 +501,9 @@ header nav a:hover::after {
 }
 
 .watchProvidersList {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
 }
 
 .watchProvidersList .watchProvider {
@@ -509,40 +526,33 @@ header nav a:hover::after {
 }
 
 .casts .castMember {
-  display: grid;
-  grid-template-columns: 50px 1fr;
-  grid-template-areas:
-  "img name"
-  "img character";
-  grid-template-rows: 1fr 1fr;
-  grid-column-gap: 10px;
-  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
   padding: 10px;
   border-radius: 10px;
   background-color: rgba(0, 0, 150, 0.1);
 }
 
 .casts .castMember img {
-  grid-area: img;
-  width: 50px;
-  border-radius: 5px;
-  margin-right: 10px;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 15px;
 }
 
 .casts .castMember .castMemberImgFB {
-  grid-area: img;
-  width: 50px;
-  aspect-ratio: 1/1;
-  margin-right: 10px;
-  border-radius: 5px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
   background-image: linear-gradient(45deg, #456 50%, #789 50%);
 }
 
 .casts .castMember .castMemberName {
-  grid-area: name;
   font-weight: bold;
 }
-
 .videos .video {
   margin-bottom: 30px;
 }
@@ -601,7 +611,8 @@ header nav a:hover::after {
   padding-left: 10px;
 }
 
-.similarMovies .similarMovie, .recommendedMovie {
+.similarMovies .similarMovie,
+.recommendedMovie {
   display: flex;
   margin: 5px 0;
   border-radius: 10px;
@@ -613,7 +624,10 @@ header nav a:hover::after {
   background-color: #ddd;
 }
 
-.similarTN, .similarTNFallback, .recommendedTN, .recommendedTNFallback {
+.similarTN,
+.similarTNFallback,
+.recommendedTN,
+.recommendedTNFallback {
   width: 25%;
   margin-right: 10px;
   border-radius: 10px;
@@ -680,4 +694,256 @@ footer {
 /* Scrollbar */
 ::-webkit-scrollbar {
   display: none;
+}
+
+/* Add these media queries at the end of the file */
+
+@media screen and (max-width: 1024px) {
+  .Movie {
+    grid-template-areas:
+      'nav'
+      'movie'
+      'similar';
+    grid-template-columns: 1fr;
+  }
+
+  .Movie .showcase {
+    flex-direction: column;
+  }
+
+  .backdrop,
+  .backdropFB {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .Movie h1 {
+    width: 100%;
+    font-size: 1.8rem;
+  }
+
+  .Home .horizontalList {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .listHead .listActions {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .listHead .arrangeActions {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .discover .verticalList {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .MovieCard,
+  .PersonCard {
+    min-width: 160px;
+  }
+
+  .MovieCard .info .title,
+  .PersonCard .info .name {
+    font-size: 0.9rem;
+  }
+
+  .MovieCard .info .rating,
+  .PersonCard .info .popularity {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Movie h1 {
+    font-size: 1.5rem;
+  }
+
+  .Movie h2 {
+    font-size: 1.3rem;
+  }
+
+  .showcaseInfo p,
+  .showcaseInfo button {
+    font-size: 1rem;
+  }
+
+  .property,
+  .keyword,
+  .genre {
+    font-size: 0.9rem;
+  }
+
+  .casts .castMember {
+    font-size: 0.9rem;
+  }
+
+  .videos .video iframe {
+    width: 100%;
+  }
+
+  header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  header .logo {
+    width: 20vw;
+    margin-bottom: 10px;
+  }
+
+  header nav {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  header nav a {
+    margin: 0 10px;
+    font-size: 1.5rem;
+  }
+
+  .listHead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .listHead .listTitle {
+    margin-bottom: 10px;
+  }
+
+  .listHead .arrangeActions button {
+    min-width: 120px;
+    font-size: 0.9rem;
+  }
+
+  .MovieCard,
+  .PersonCard {
+    min-width: 140px;
+  }
+
+  .MovieCard .info .title,
+  .PersonCard .info .name {
+    font-size: 0.8rem;
+  }
+
+  .MovieCard .info .rating,
+  .PersonCard .info .popularity {
+    font-size: 0.7rem;
+  }
+
+  .MovieCard .actions i {
+    font-size: 1rem;
+    padding: 8px;
+  }
+
+  .Search .search {
+    margin: 0 10px;
+  }
+
+  .Search .search input {
+    padding: 8px 20px;
+  }
+
+  .Rated .verticalList,
+  .Search .verticalList {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .Movie h1 {
+    font-size: 1.3rem;
+  }
+
+  .Movie h2 {
+    font-size: 1.1rem;
+  }
+
+  .showcaseInfo p,
+  .showcaseInfo button {
+    font-size: 0.9rem;
+  }
+
+  .property,
+  .keyword,
+  .genre {
+    font-size: 0.8rem;
+  }
+
+  .casts .castMember {
+    font-size: 0.8rem;
+  }
+
+  .similarMovieTitle,
+  .recommendedMovieTitle {
+    font-size: 0.8rem;
+  }
+
+  .listHead .arrangeActions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .listHead .arrangeActions button {
+    margin: 5px;
+  }
+
+  .discover .verticalList {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .MovieCard,
+  .PersonCard {
+    min-width: 120px;
+  }
+
+  .MovieCard .info .title,
+  .PersonCard .info .name {
+    font-size: 0.7rem;
+  }
+
+  .MovieCard .info .rating,
+  .PersonCard .info .popularity {
+    font-size: 0.6rem;
+  }
+
+  .MovieCard .actions i {
+    font-size: 0.9rem;
+    padding: 6px;
+  }
+
+  .paginator button,
+  .paginator .pageNumber {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+  .pageTitle {
+    margin: 10px;
+    font-size: 1.5rem;
+  }
+
+  .Search .search {
+    margin: 0 5px;
+  }
+
+  .Search .search input {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+
+  .Rated .verticalList,
+  .Search .verticalList {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 5px;
+  }
+
+  .noResults {
+    font-size: 1rem;
+  }
 }
